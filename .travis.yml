@@ -8,15 +8,23 @@ install:
 test: true
 script:
   - yarn docs:build
-  - cp -r ./dist/* .
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  on:
-    branch: master
-env:
+  # - cp -r ./dist/* .
+after_success:
+  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+  - cd dist
+  - git init
+  - git remote add origin https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
+  - git add .
+  - git commit -m ${MESSAGE}
+  - git push origin master -f
+
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $GITHUB_TOKEN
+#   keep_history: true
+#   on:
+#     branch: master
 env:
   global:
     secure: Q7yafqlUMfVCsrnss+pMr2L7msQ9XUCa8x7wIwxGQRDcZK9Ijon7ExHxhklFvHBzu9sQxHgC+b5GuBe8aTZwhb64envFbqvj2q6bbgxx27eNHlrAI+dYl9vyYP6yaXnb17oby5m2voR0kKdTn4Olzr6Rv3+rw/oZvO4GmB4SmjB+Vq4xJE/uc/fxNfmhSgfZGfFhogWZwtUqTsgTgTvuZiTOqTFl/FP/AFgr4TL7dbt+hCqvK4K55yli1aLrYOgzHFAT+diGtXbZIchJCv9xb5N6pvWGy5LG0lcJbIGPMmz4emStayW4y2kHlD8hevYgg2AlbCOVT/DKwHS4LbFMeHih/Ma+TNIQ3CoGJIv/yRTq3EFDHI+5nxQjm+OVohNHbbNvk+4hreMH5VD3VYZcaAWxvZIfMQw+rwT6idrwlt1nZzCF5Ah7e2FLN0H/W/gM8m78He3M5zK9Mo5dH4hyfh7PIXTSnoByGBezY4XbeUrmgtsga48HfeKoHTmhDOnxsASQ2DkCnWQ+c+9lqwq0OaVM1MQOLJqIIKzAt/mO3vLHJLd8rdOKIYWvv0EtiT6UiJ6YYlhAbB7u4ZnXzGQP7DycOwD9ImnqoYkV8xaRArgGKQtIIL13jV4RSxEdaH8Y621noHTU+/FyecczNd95oS6yaVPxEav8RJ2lZn87oVI=

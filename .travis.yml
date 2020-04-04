@@ -8,11 +8,12 @@ install:
 test: true
 script:
   - yarn docs:build
+cache: yarn
 after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - cd dist
   - git init
-  - git remote add origin https://${rickychenrihua@foxmail.com}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
+  - git remote add origin https://rihuachen:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
   - git add .
   - git commit -m ${MESSAGE}
   - git push origin master -f

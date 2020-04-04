@@ -4,11 +4,11 @@ node_js:
 before_install:
   - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
 install:
-  - npm i
+  - yarn
 test: true
 script:
-  - npm run docs:build
-  - cp -r ./.docz/dist/* .
+  - yarn docs:build
+  # - cp -r ./dist/* .
 deploy:
   provider: pages
   skip_cleanup: true

@@ -6,6 +6,9 @@ before_install:
 install:
   - yarn
 test: true
+before_script:
+  - git config --global user.email "rickychenrihua@foxmail.com"
+  - git config --global user.name "rihuachen"
 script:
   - yarn docs:build
 cache: yarn
@@ -13,7 +16,7 @@ after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - cd dist
   - git init
-  - git remote add origin https://${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
+  - git remote add origin https://${rihuachen}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
   - git add .
   - git commit -m ${MESSAGE}
   - git push origin master -f

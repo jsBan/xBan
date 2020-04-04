@@ -1,30 +1,21 @@
 language: node_js
 node_js:
-  - '10'
+- '10'
 before_install:
-  - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+- composer config --global github-oauth.github.com "$GITHUB_TOKEN"
 install:
-  - yarn
+- yarn
 test: true
 script:
-  - yarn docs:build
-  # - cp -r ./dist/* .
+- yarn docs:build
 after_success:
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - cd dist
-  - git init
-  - git remote add origin https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
-  - git add .
-  - git commit -m ${MESSAGE}
-  - git push origin master -f
-
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: $GITHUB_TOKEN
-#   keep_history: true
-#   on:
-#     branch: master
+- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- cd dist
+- git init
+- git remote add origin https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
+- git add .
+- git commit -m ${MESSAGE}
+- git push origin master -f
 env:
   global:
-    secure: Q7yafqlUMfVCsrnss+pMr2L7msQ9XUCa8x7wIwxGQRDcZK9Ijon7ExHxhklFvHBzu9sQxHgC+b5GuBe8aTZwhb64envFbqvj2q6bbgxx27eNHlrAI+dYl9vyYP6yaXnb17oby5m2voR0kKdTn4Olzr6Rv3+rw/oZvO4GmB4SmjB+Vq4xJE/uc/fxNfmhSgfZGfFhogWZwtUqTsgTgTvuZiTOqTFl/FP/AFgr4TL7dbt+hCqvK4K55yli1aLrYOgzHFAT+diGtXbZIchJCv9xb5N6pvWGy5LG0lcJbIGPMmz4emStayW4y2kHlD8hevYgg2AlbCOVT/DKwHS4LbFMeHih/Ma+TNIQ3CoGJIv/yRTq3EFDHI+5nxQjm+OVohNHbbNvk+4hreMH5VD3VYZcaAWxvZIfMQw+rwT6idrwlt1nZzCF5Ah7e2FLN0H/W/gM8m78He3M5zK9Mo5dH4hyfh7PIXTSnoByGBezY4XbeUrmgtsga48HfeKoHTmhDOnxsASQ2DkCnWQ+c+9lqwq0OaVM1MQOLJqIIKzAt/mO3vLHJLd8rdOKIYWvv0EtiT6UiJ6YYlhAbB7u4ZnXzGQP7DycOwD9ImnqoYkV8xaRArgGKQtIIL13jV4RSxEdaH8Y621noHTU+/FyecczNd95oS6yaVPxEav8RJ2lZn87oVI=
+    secure: tQdUp4DquJ1Uysnw8ofDWnAhWkHypa2XwWLw8SZPbSsihd6kMODk1EQ7cbvedLp6tzxw3G6TR0pgPmN5ECb0lxiddQDXt9FdgkVdC3IGQjOEFPcu5O2yIiCFTjmgVzEktGQyBI3Fq8TXFmb2UBL8HKO4qzQWJIzFESJhjqDfQ/YwwnRd0BEZmjRFhuKmEAEcb7gmQkuN1BTuv/0vCf2z7DNBmSwqNAt9F+xWCPhULlDuzOkbuHsOYR/4BA1xrGa95VgyQehYnPbVn5bet3CeE4Mp1U3/OdXOVbAj6xpcV1xmI2DATKqO23ahFZ4OSbfmbzz4q+e3+b9+Wdnbor1C6pbUV/hqAHvO6IDcwJSSuc4tI+69wzyZ5DYvle/XTZMCJR2TAniBQu62whlmTbnJUjiuG5wVpfsdYv4iwF2r45xvHY+TEwXlC8m/KddFjmf1+vEZJ4sqNd0qEBsLkJqeCsQjHO2gbgYS/7wp7j8E2e3ddWXT2bCup1ivO6MO23TCHssibzITuF/AfzIeiM0+/+zxZtqi0Lns0+lp8zgKMI1B8d897Hsktp4Jlt1WCPRKCAyInbdW/7aRoRWT4fxRwx59ieridFjIXOashhLRsg/cjN7W6f7MNPgdDDxa3ZpUhWmOfwAkS6LIu7a48+hFITtiGqYIssDiCiw1GQ3nji4=

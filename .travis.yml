@@ -12,14 +12,20 @@ before_script:
 script:
   - yarn docs:build
 cache: yarn
+# after_success:
+#   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+#   - cd dist
+#   - git init
+#   - git remote add origin https://${rihuachen}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
+#   - git add .
+#   - git commit -m ${MESSAGE}
+#   - git push origin master -f
 after_success:
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - cd dist
-  - git init
-  - git remote add origin https://${rihuachen}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
-  - git add .
-  - git commit -m ${MESSAGE}
-  - git push origin master -f
+  - git config user.name "Travis CI"
+  - git config user.email "rickychenrihua@foxmail.com"
+  - git commit --message "Auto deploy from Travis CI"
+  - git remote add deploy "https://${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git"
+  - git push deploy master
 env:
   global:
     - secure: fi5/emCRuEyxv0k7L4lQz6N9vn/FjQPOjm66pNcoHHqezElcCmXGMBobRaCTh9jHU3R2pBHCJQa7mCdfaml5aCbMaE/LEF3VN90Yw14qCNx61GkU5MqeX3glsYDTBlw73FX07ytWt8StCB5gAIw8dgmvFqtG+mJULVJQr3NVZ5V/hASRa3KThD5jx13jHqoZWQ+KOQX8Gu4zFr/NqvSPOsEkCFk1PimJaUljE7Zwgu7uMJtahGt7E00sao+P9PTHkuMrhGnLw2S0NEYP9iUIbB80enNWGUsH9yf8YtxZgOVodMpqDzRD+z6kFqcsPBdnMlvNwpXiZdvMZBm9+JDxZ+0xheGqTseFGVMtkfm1EtU+2zM22MDqRu9A+RFZIlmyJvL0WYcO3dQCG77dfTcbxdKkDEav8LD9i1BS5JS4T2a+Idar659cd0ix6a4fwfngvRnX+Rz3p/6xbdjIsYk75Zbq52WK+OqDIVnZdcSUy2z/QHsyeYhuv+nr00M2CW/Raqoha4yFh4tutQGE/aiCiDwGv2LV7K03A2UCjzdHEHc+ueJIA6l5aqwH2EWXlYTlfCQ31BvYgKQ9b7ygBLBAodlQFG0H3VKedCr4tX13qMQkmi9DP5E2nRaVSHrhMZIvnuK6YQ7YuOy+Vlzk2PknxVFJNbengbyjRYVJh/aCJcY=

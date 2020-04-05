@@ -21,14 +21,6 @@ after_success:
   - git add --all
   - git commit -m "${MESSAGE}"
   - git push origin master -f
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: "$GITHUB_TOKEN"
-#   keep_history: true
-#   email: rickychenrihua@foxmail.com
-#   on:
-#     branch: master
 env:
   global:
-    secure: sNSpLEOi4fTRFnG+sJpkAbuEqKVCPf9utqiZSEthWWml48Fak4oBT8dY0gtLQJ9KEg6uzNhaMTsvzeE9KdgQMR3AAOPeP9u+LRszlQFrY7P6UarvSBLVbZjW8+7/MRps0EloQ5O6a0irD4kxIwIs44HciBTfTRuoJTd2Jz7AVLL6D6lHxTPTTQT0vugzK0zBLVCtIwWzUdVS0CgjfUcdE9/NRbRrlQfrzfT3zIjxA0Myv1hfejElTopQZz0D3LO8V/VFmpv4BTKlbIIlJFm+3c50/bWs1yDnCHukrg9knSTTUfpXs6CfwUsf7ySzkvFgiwaRErxkITuno5v2WfpQdhstLMNeyolPh/2yfBGune+uQo/BPjObJFuEC2iQPAdp4rdFoLPXu0WXeHp4LYNgyqd3vXcOpTNFqLKQb7T3Lu2l7MVIMdXFJLkP4BI1okfU7cvcUTcHDo+EaGBnRgPfO+FZGfqFbrEsjJyxw5ByCYl7zZePNV+vrqvmRY2mkTohs55XedvVGDzxmScDo8GFzKzgyIjW3i6Vl1HUHYsAPU+jwdWIifksb/RKkI31QcWiTTOqsquMg3jg+DnOyxv3MFWhfquSXxL+I/zHC9V+BzncL/AJcO8Mq4UgRf0uX5Kfee0a9L/fzoVpqcRae03ssi53hhi+4Cx2yduywFqAIvk=
+    - secure: FgFPCe+rQDTRUz32pWQMG9lolviQHM+ki4C+ObAiK9yhhcQVgKkyyv3eNMjzwqldSigNUsBtraKvuORKFT2YxCYqX/enxLuuqCJFuyMi7BVKpBvrxCjLB97JR2DB7UhLrx61EkqNjY/iXLCIur3mZaQsJPtmMP8FTGL2kIBGCrZ1cyRfc9t4Pry6glC514s1PujIzJv+Q8e3t0ARwPWLuU9+ZdY3nc8UPjTcbModfVwvZxly8rnjl0UmS2ZPFvOhvEoc8j8F80Murcycc2L6V27AawJ4/ykEzjJGBFDNAv/3kmERIKwajSR3xEkgLCTVkX6YEjkK7rh+bi5wpgFgFCbQvvmSQuSImaxHMvqV9bBE8YPIhPRs5zq+Qv/g0dbgK2TosoI2AY9Gk7B3LqjSiukNGkE+9OESUDlycJlGjsaPegP1Zxy950SDk18sDf3OdozVfvTWpIiiGPlL14QIlmldoZzLfK+/EdT0/MMKZZHNzJZckJRGgSKW+61xXzPNhIrlTq2+kenFb3nS9kJwQC5PGk51oYj7mxcj2cnvYhimwstUd8FQ/FDv56yYjZA+ZpR1rMU8KlEkfK4DteoNKH+6+nNrNSc416Nw1XeBEHXWCAnE8FH83jSwZEqYm8zJKSSbkrT782gTX2wA9fBeoJs/mZlnHVbHmUD5xC1Lriw=

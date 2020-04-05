@@ -6,9 +6,9 @@ before_install:
 install:
   - yarn
 test: true
-before_script:
-  - git config --global user.email "rickychenrihua@foxmail.com"
-  - git config --global user.name "rihuachen"
+# before_script:
+#   - git config --global user.email "rickychenrihua@foxmail.com"
+#   - git config --global user.name "RihuaChen"
 script:
   - yarn docs:build
 cache: yarn
@@ -21,7 +21,7 @@ cache: yarn
 #   - git commit -m ${MESSAGE}
 #   - git push origin master -f
 after_success:
-  - git config user.name "Travis CI"
+  - git config user.name "RihuaChen"
   - git config user.email "rickychenrihua@foxmail.com"
   - git commit --message "Auto deploy from Travis CI"
   - git remote add deploy "https://${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git"

@@ -1,19 +1,20 @@
 language: node_js
 node_js:
-- '10'
+  - '10'
 before_install:
-- composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+  - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
 install:
-- yarn
+  - yarn
 test: true
 script:
-- yarn docs:build
+  - yarn docs:build
 cache: yarn
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
+  github_token: '$GITHUB_TOKEN'
   keep_history: true
+  email: 'rickychenrihua@foxmail.com'
   on:
     branch: master
 env:

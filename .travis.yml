@@ -1,32 +1,21 @@
 language: node_js
 node_js:
-  - '10'
+- '10'
 before_install:
-  - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+- composer config --global github-oauth.github.com "$GITHUB_TOKEN"
 install:
-  - yarn
+- yarn
 test: true
-# before_script:
-#   - git config --global user.email "rickychenrihua@foxmail.com"
-#   - git config --global user.name "RihuaChen"
 script:
-  - yarn docs:build
+- yarn docs:build
 cache: yarn
-# after_success:
-#   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-#   - cd dist
-#   - git init
-#   - git remote add origin https://${rihuachen}:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
-#   - git add .
-#   - git commit -m ${MESSAGE}
-#   - git push origin master -f
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+  github_token: "$GITHUB_TOKEN"
   keep_history: true
   on:
     branch: master
 env:
   global:
-    - secure: fi5/emCRuEyxv0k7L4lQz6N9vn/FjQPOjm66pNcoHHqezElcCmXGMBobRaCTh9jHU3R2pBHCJQa7mCdfaml5aCbMaE/LEF3VN90Yw14qCNx61GkU5MqeX3glsYDTBlw73FX07ytWt8StCB5gAIw8dgmvFqtG+mJULVJQr3NVZ5V/hASRa3KThD5jx13jHqoZWQ+KOQX8Gu4zFr/NqvSPOsEkCFk1PimJaUljE7Zwgu7uMJtahGt7E00sao+P9PTHkuMrhGnLw2S0NEYP9iUIbB80enNWGUsH9yf8YtxZgOVodMpqDzRD+z6kFqcsPBdnMlvNwpXiZdvMZBm9+JDxZ+0xheGqTseFGVMtkfm1EtU+2zM22MDqRu9A+RFZIlmyJvL0WYcO3dQCG77dfTcbxdKkDEav8LD9i1BS5JS4T2a+Idar659cd0ix6a4fwfngvRnX+Rz3p/6xbdjIsYk75Zbq52WK+OqDIVnZdcSUy2z/QHsyeYhuv+nr00M2CW/Raqoha4yFh4tutQGE/aiCiDwGv2LV7K03A2UCjzdHEHc+ueJIA6l5aqwH2EWXlYTlfCQ31BvYgKQ9b7ygBLBAodlQFG0H3VKedCr4tX13qMQkmi9DP5E2nRaVSHrhMZIvnuK6YQ7YuOy+Vlzk2PknxVFJNbengbyjRYVJh/aCJcY=
+    secure: pZuDWyqtbXiQY3RWT8YLKNvrS8eIyUnO6ctwMBZEYTt8YADvXIcU9AotjCHE8ydS/+q5YsUuD+RZMsHq31kWVnRH3HGGcKUP1wAXcsfV4dIbF3C5TnbPZAXhUxl1y9noml0+2OycZdFtoAxvBhKlLQG8paxBSg79IEwArJ3x37zCeMCAhV8bYrlAvz0b7LBpGRvp9L/qi1fIgOzu8aHt5zp2SCTfABeANU/nzkC8csoxCEtMacVyWa9tJQOMciIrTcDtRgRedXiObzFaqVJhIYdOw0E2mK1bJQ/03soB1lJW7vJKFwskRoupKC3koLtvscPXau+L40akOg/d4nfzCaoqp2DjLW4Nad94kKHbQ+9mbkIU80QXUBRtPMjNNm7yiH93bqdDpj0TQwWWXDkyI2cvCYztlS5ubTNTYe85Nghkv51HTwNYjQ1LaNoIyKSRYtTGbXlNAifuk2eYvvhjJ5YI1vBq06NME3tBaUONanH/j7GDLvUJNr/ZT+zWnApSCltnrtfgoferiYt749oVzWaocJepa9nYMeWze13LRYgYXx/azPZhUUzVjGLxtmEGM1SFF2siiXZcp6NmWk9IU/UpYpun8LlDl8pGFH7C3Ov2Vj0mDD6ciMLJ4vBaOFW+uq+/X8kbLAwtuAgq+gL5OVf821z2zaz25llz1Uq0WE0=

@@ -19,7 +19,7 @@ after_success:
   - git init
   - git remote add origin https://rihuachen:$GITHUB_TOKEN@github.com/rihuachen/rihuachen.github.io.git
   - git add --all
-  - git commit -m "${MESSAGE}"
+  - git commit -m ${MESSAGE}
   - git push origin master -f
 env:
   global:

@@ -19,8 +19,16 @@ after_success:
   - git init
   - git remote add origin https://rihuachen:$GITHUB_TOKEN@github.com/rihuachen/rihuachen.github.io.git
   - git add --all
-  - git commit -m 'DEPLOY'
+  - git commit -m "${MESSAGE}"
   - git push origin master -f
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: "$GITHUB_TOKEN"
+#   keep_history: true
+#   email: rickychenrihua@foxmail.com
+#   on:
+#     branch: master
 env:
   global:
     secure: sNSpLEOi4fTRFnG+sJpkAbuEqKVCPf9utqiZSEthWWml48Fak4oBT8dY0gtLQJ9KEg6uzNhaMTsvzeE9KdgQMR3AAOPeP9u+LRszlQFrY7P6UarvSBLVbZjW8+7/MRps0EloQ5O6a0irD4kxIwIs44HciBTfTRuoJTd2Jz7AVLL6D6lHxTPTTQT0vugzK0zBLVCtIwWzUdVS0CgjfUcdE9/NRbRrlQfrzfT3zIjxA0Myv1hfejElTopQZz0D3LO8V/VFmpv4BTKlbIIlJFm+3c50/bWs1yDnCHukrg9knSTTUfpXs6CfwUsf7ySzkvFgiwaRErxkITuno5v2WfpQdhstLMNeyolPh/2yfBGune+uQo/BPjObJFuEC2iQPAdp4rdFoLPXu0WXeHp4LYNgyqd3vXcOpTNFqLKQb7T3Lu2l7MVIMdXFJLkP4BI1okfU7cvcUTcHDo+EaGBnRgPfO+FZGfqFbrEsjJyxw5ByCYl7zZePNV+vrqvmRY2mkTohs55XedvVGDzxmScDo8GFzKzgyIjW3i6Vl1HUHYsAPU+jwdWIifksb/RKkI31QcWiTTOqsquMg3jg+DnOyxv3MFWhfquSXxL+I/zHC9V+BzncL/AJcO8Mq4UgRf0uX5Kfee0a9L/fzoVpqcRae03ssi53hhi+4Cx2yduywFqAIvk=

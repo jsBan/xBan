@@ -14,8 +14,8 @@ after_success:
   - cd dist
   - git init
   - git remote add origin https://rihuachen:$GITHUB_TOKEN@github.com/rihuachen/rihuachen.github.io.git
-  - git add .
-  - git commit -m ${MESSAGE}
+  - git add --all
+  - git commit -m 'update test'
   - git push origin master -f
 # deploy:
 #   provider: pages

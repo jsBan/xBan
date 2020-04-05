@@ -3,9 +3,9 @@ node_js:
   - '10'
 before_install:
   - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+  - $MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - echo $TRAVIS_COMMIT
-  - echo MESSAGE
+  - echo $MESSAGE
 # install:
 #   - yarn
 # test: true

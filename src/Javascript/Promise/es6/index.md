@@ -1,4 +1,5 @@
 # Promise ES6 Version
+
 ```Javascript
 export class Promise {
   constructor(executor) {
@@ -13,6 +14,7 @@ export class Promise {
       if (self.status !== PENDING) {
         return;
       }
+
       self.status = RESOLVED;
       self.data = value;
       if (self.callbacks.length > 0) {

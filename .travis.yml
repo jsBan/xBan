@@ -1,23 +1,26 @@
 language: node_js
 node_js:
-  - '10'
+- '10'
 before_install:
-  - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - echo $TRAVIS_COMMIT
-  - echo ${MESSAGE}
+- composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- echo $TRAVIS_COMMIT
+- echo ${MESSAGE}
 install:
-  - yarn
+- yarn
 test: true
 script:
-  - yarn docs:build
+- yarn docs:build
 cache: yarn
 after_success:
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - cd dist
-  - cp index.html 404.html
-  - git init
-  - git remote add origin https://rihuachen:$GITHUB_TOKEN@github.com/rihuachen/rihuachen.github.io.git
-  - git add --all
-  - git commit -m "${MESSAGE}"
-  - git push origin master -f
+- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- cd dist
+- cp index.html 404.html
+- git init
+- git remote add origin https://rihuachen:$GITHUB_TOKEN@github.com/rihuachen/rihuachen.github.io.git
+- git add --all
+- git commit -m "${MESSAGE}"
+- git push origin master -f
+env:
+  global:
+    secure: CD+alYoBsmMHcXyI0CcCI27rpCfeo1I6/R/Si4dgAzUb3hy9tj7w6JbXxUvEhlR73B+25mgmSKzjwJOz8wHw82FFMaC6NxnoHx8qO+q2vj7l/DvNFB/Zk7P2t/gJBCIGv3J+CUP6gj+xN4QFmwSIHuJpPSkPSsDOJi2h1fBcl+jDB5OXP5pYPuHuhDNMUB1YBf7BR55z7SY7lglg4n0E/h1gvyNoq5dmsUanQ8B9lWfIEQIF7rypBbCqMzF15bK0xtmDhiXDQ97Iz+7CQ1277gsbBPx4DIpfVKPVyN4t5CVG41+ZWAObeOIgLB/iJab5UxUEUSir2831rBMIc+9J2ArkrFZ5dLq89MViSdjTiktBQxdKaDJCz9tmmnTkCif8TjJVX0GeIVp+VFqwCNmqv03wimKitWJ8cqXOiva8ZeclBnQ+ytrIMAdCrsowLbPvPGlICby0Sv8FfD7nkJ/1/kT9l7UK9CtVxNM2dnleZ5ZvmIXpzvSZ2CBdAluNM09QpL0PZO9oFCAc3btPvB5+1+abXN/93xPr7rNi83aKPTzLKinGaoF3je2PsmPlBLIcHCoT/d7Jm7sVI/mk09+z7WzrXv+IHCkqAlRamois6EBLbqKDd9Dh0uFSufV7obdJYdx7HbX16sKDnNYDf9QygTH/iBh+OWCf8Zjiuv1CsTw=

@@ -24,7 +24,6 @@
         });
       }
     }
-
     function reject(reason) {
       if (self.status !== PENDING) {
         return;

@@ -11,21 +11,15 @@ test: true
 script:
 - yarn docs:build
 cache: yarn
-# after_success:
-# - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-# - cd dist
-# - cp index.html 404.html
-# - git init
-# - git remote add origin https://rihuachen:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
-# - git add --all
-# - git commit -m "${MESSAGE}"
-# - git push origin master -f
-deploy:
-  skip_cleanup: true # don't clean generated site
-  github_token: $GITHUB_TOKEN # provide the encrypted token
-  on:
-    branch: master
-  repo: RihuaChen/RihuaChen.github.io # optional, defaults to current repo
+after_success:
+- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- cd dist
+- cp index.html 404.html
+- git init
+- git remote add origin https://${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
+- git add --all
+- git commit -m "${MESSAGE}"
+- git push origin master -f
 env:
   global:
-  - secure: FlhASsBh4pucMIk5iKkg6K1LSWyb7zpQwf0o1QNgQJfen1leZAJApeprxzPFvcaGvxFO5uL3sZHUGVMhUmPL2Vxr021Xi2dhC2Kzd44qO6RJcsiPboCNhk44QWP9iGqqu10sucpHvYJztQUaZT8ZwiHp+FJzzr7eBlWsmgE/BTfLNSJUw0wPJdYPxN6LOCElikeVtxYE2SLNsUCpubAPuGRiRu8tfn4XtcuEevyRfRMPT+es3zRLGkvSODtdSPSUXoUT+RhkeDDULvqL5TjKdiSG4XUKOmxb2o4DGMB2pGCK0H4/jq+7Tb5O2H59Ag+ut+ZfuELY/21cz+wWfor6Y84dqkrYt8QU9DGzdm25eEk4y7T14fwyeasUmSmcb99LtgDo0U66IzemV1n/psMnzzzzzMcRk3oIIHBunkW5h/0NW2wSXdrGVkCoMQfpITLNC+PmyxyRkAdotJbpkpIAZnqLS5hOD0mhi5W9sPQxv7P0VdzTBDfMsPB5flfmjhxyDYyT9YFeR1gYZA4mGXt0b+NeZDhuWZBeGH9rDgrsi7KhK5KWrmt6EtwrehTNrvTVOKK63K0yjl90Uu6Ev7NLOKjOkGFyCiOVcCt9zPm2UWfVpHik/3szI5vcb1nyppkI1qifwM4Rma0U7uqd0GuRj8CVa8GZba5lwKpIeBA9+7E=
+  - secure: Hod8upNzS8JpmmXuryxE7toDX0b0wvRJaXyDVHTdhf/GEC/walT+YDgtAlP+InPOt4MoyyH6VklPcMGMcS/kML3wwb25usDmjtazchGztr5sN6iqqJMvR0tx+FdJF5KPneYmZW2w7gFE3onfvN/FLCwuDLTudlucpgLdgMdDHdK60F3CMZMvKOEvCtKqjud2ePyLFVe3p/gIoUImKQnQTcnELXJl/o1Yzumnj8KuKvLTDL66BCZMusJfTB2ZSc2vrsPg5VtjsWDLYd4cij6nQzFTN9aJE5hGNhmxb0NwL9wt3WLOTWJQGzIU4ELJowMFJWUNmi1J03bNmYBwgyGBeD0iiS5v42pRteJgD8h2i41YUw5ibEbWca4HGU8DE7vOlNm9ocnrvwgh7+COSoNDJ3IB/Kv4wDbn8FCGLk8SlUVjtIs0EmQ5XNEW7Y4brp36+5GbqD7ltoY7yTdRp1zVxUzHtg95iPYuVQ9dHqKqEt9KvvWAPXa7JIfHHajDN0aUBdgW71/xt8Rh833fJG2MQtp7Q3xhmG0+TmCh/nwE4M85T6R1kucJyo7qJl6GjevZiF9hanoD57LsjmcuB9120dZjTFeuAuJwCQUifKv03k99/lAc4Qiec2+WHdxXTT0n2d2reABfFyH2ak6DbLsxbr7nftItLjFYC2Yi0/xUvx0=

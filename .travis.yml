@@ -23,5 +23,5 @@ deploy:
   on:
     branch: master
   repo: RihuaChen/RihuaChen.github.io
-  target_branch: master
-  # local_dir: dist
+  # target_branch: master
+  local_dir: dist

@@ -23,6 +23,7 @@ deploy:
     branch: master
   repo: RihuaChen/RihuaChen.github.io
   target_branch: master
+  local_dir: dist
 env:
   global:
     secure: f8Un6kIYavsb/tSb0f+d64CYilXgGSWKZn650mNDEZhaizHKbgKJD+A9Lhup3Nh48YiaEdHjqTerGdu1hxEHKUvF//7p5qqYi72UBloSO4cirCpPsAmi+lKKuhCOkS06zzgCYH6UcGyV6JgJz+Tx4ORc0DPre9PyHVABppP6g5cnRKjCQpTIW+yIIVRqL/9D2+OcfaoSdEpZ/1WNwvLCEeG4+hbHLqgQ1GCGUslWi6MMQaskLIbA3GVfmu15CG7UswuXkPouCB5Fvizs8ow8RcKfVKcUn4ecy4U+DY12bhDb028vkBt5xQA1jZBH2KQhTBN5aduqPA7tkEI61wFJYaOWOaD3boSuMembf1rtpEppSa314UlmHe/qpGr5PpS9XHZVVIzmnrlfOCBf9zdLxZnNwKuyNLG7+EmVFo/sHnhiWvX3gIPy6GI9dsAybh7TwL7bv6RXVDxGbtsJM3tKs/ezJF8H7uscngSAOD8+OtickArGwmeBBYKSrpP37AUxc0e0RwB6XqIOmMaKYMGhihrl82SptN1hNohCVdY0Av3n3mOaSr/kGhzt+YwIMzTbB1FVwrjIKrSdX0dgftOIA+DSN/B/6y35G9KGrSM05U4Q1DEYsiG94f7/nHvbY4RUDEEg+zvBgFrA/XcN1CSVpM5as0kYDtZ58YoZq3XD0Tg=

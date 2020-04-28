@@ -2,7 +2,6 @@ language: node_js
 node_js:
 - '10'
 before_install:
-- composer config --global github-oauth.github.com "$GITHUB_TOKEN"
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - echo $TRAVIS_COMMIT
 - echo ${MESSAGE}
@@ -17,10 +16,10 @@ after_success:
 - cd dist
 - cp index.html 404.html
 - git init
-- git remote add origin https://rihuachen:$GITHUB_TOKEN@github.com/rihuachen/rihuachen.github.io.git
+- git remote add origin https://rihuachen:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
 - git add --all
 - git commit -m "${MESSAGE}"
 - git push origin master -f
 env:
   global:
-    secure: 2MN0jTBqlN4w4GwxCgZWRqyJ/G0vz9B1YQkyCGpEAuqPrWC7EWWFt4mwVNFopqKX81BiO/kFCLh5SYn5xOP5Jp3dBnSzaTpY+f6nbInDi8HRJkmt/j1w42NoC5oz8xUoJ7qMwo2lTRYfSls55ejYoLHKDRngKnWjKfTKKRQHht4ri7G+SfUWlDIVE0ONCMhjNshwXU6tRFdBkBG1S4lkseLYjSyPwHoPae33cJprmUr3IEPIEV0YU9HOfA9t5Y5mf/9sYgRQhliMSKJmCD8Zn/v2tVZBzLWtfm7I1SF3FLg6baP1NxKnQ6iYilqDeHtw7uMq8o/9tM+vanVGsVPcGsZ3NJZCsOMtE21l7CV3fhyG8iu0pXVHkoerMIOdG1zQ5e2jXUWefmXtzCJIRNbSmAq5whYpASraBZsBQP0WbwkHJ9UxbDWilqoxlXQ+cPRlFxuBfQ+8foO5INoTP89hH+yhjw7e6ByZW0DFhuwbYVmYPGWEaUwAMAqSGuP4aTMu7uxARnACIj9bA1DvBnZ1GmFaa3YC9YEIW03bJYmxyjkWdcOgAPGw+YZ4UIrQEcsdYkDnNz/RaLOSO7mY3RwdzwGkrhuCbgf2G5+vbMA/MyAuGqs4Y7ipioEJZ9okxt8Ic98gdyjdluvHSxJewZauYrhhoqmUZhHQ21p6Uc/US7I=
+    secure: qImTycpslIyfH/C40tIpEApZqwcsEeU3R7NjDytcXXLWLzcRQ9xgqjVVIVv9x6F0S1kNvY5gVA3WPDdnk13R74FUl3rzPjvoJYw8PAroJj4h/CsOKriPsqVnwvccnncsWnsNzgvz5kcz4qR6BlfzdkLxNeLnW2tVTiWJxy6ignughhxFMmOv9TjC3jYkMc4VRT2BQcG1dfuESxFWbxynUk/6beo0uMFk1vixlZidbbfBfmymdrQlgojiId3LjT25CHPtVLatpYUAk3xKsRY1rvZIyB9tIND+dEf7i4E1mMmjwB53GEqt+KuPfI2NUkGR/5NHGARGZ8N5yCpZMLAAoum8OLzkSf4NPYyqEfB3p/SLM/TC726U2fLpkRQB9fOyQgZyUslo0opCI2vPUEWy/l7EjG2Ytrutl1GYogF5KObtxcq2IFQirl5mZR4UksA4FqHqym48U6yqQirv+ehI1zRA+dHZHQfgb0Lx9aM8x07Jpqi/hXlChC478EDbN3DeWZK9bkxGdG26adAJgu439wKqKRv48ALNanhpgLO7C2nzEVi9Tb5+RFnOxyOg3tcddnxz2Ml+7hV3cfCJS1+4IhglFBFyTu5KqfF2N5f8Mfenwck+5L7lAALvbcHDIQMv16Hhq+El+/AgmVT9PwNgEJZBel3Rg0BScarYy76/Xxg=

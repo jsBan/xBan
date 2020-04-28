@@ -18,7 +18,7 @@ after_success:
 - git init
 - git add --all
 - git commit -m "${MESSAGE}"
-- git push https://${GH_TOKEN}@github.com/rihuachen/rihuachen.github.io.git master
+- git push https://github.com/rihuachen/rihuachen.github.io.git master
   -f
 env:
   global:

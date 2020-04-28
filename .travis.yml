@@ -2,8 +2,7 @@ language: node_js
 node_js:
 - '10'
 before_install:
-
-# - composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+- composer config --global github-oauth.github.com "$GITHUB_TOKEN"
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - echo $TRAVIS_COMMIT
 - echo ${MESSAGE}
@@ -22,3 +21,6 @@ after_success:
 - git add --all
 - git commit -m "${MESSAGE}"
 - git push origin master -f
+env:
+  global:
+    secure: 2MN0jTBqlN4w4GwxCgZWRqyJ/G0vz9B1YQkyCGpEAuqPrWC7EWWFt4mwVNFopqKX81BiO/kFCLh5SYn5xOP5Jp3dBnSzaTpY+f6nbInDi8HRJkmt/j1w42NoC5oz8xUoJ7qMwo2lTRYfSls55ejYoLHKDRngKnWjKfTKKRQHht4ri7G+SfUWlDIVE0ONCMhjNshwXU6tRFdBkBG1S4lkseLYjSyPwHoPae33cJprmUr3IEPIEV0YU9HOfA9t5Y5mf/9sYgRQhliMSKJmCD8Zn/v2tVZBzLWtfm7I1SF3FLg6baP1NxKnQ6iYilqDeHtw7uMq8o/9tM+vanVGsVPcGsZ3NJZCsOMtE21l7CV3fhyG8iu0pXVHkoerMIOdG1zQ5e2jXUWefmXtzCJIRNbSmAq5whYpASraBZsBQP0WbwkHJ9UxbDWilqoxlXQ+cPRlFxuBfQ+8foO5INoTP89hH+yhjw7e6ByZW0DFhuwbYVmYPGWEaUwAMAqSGuP4aTMu7uxARnACIj9bA1DvBnZ1GmFaa3YC9YEIW03bJYmxyjkWdcOgAPGw+YZ4UIrQEcsdYkDnNz/RaLOSO7mY3RwdzwGkrhuCbgf2G5+vbMA/MyAuGqs4Y7ipioEJZ9okxt8Ic98gdyjdluvHSxJewZauYrhhoqmUZhHQ21p6Uc/US7I=

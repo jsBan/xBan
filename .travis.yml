@@ -15,6 +15,7 @@ after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - cd dist
   - cp index.html 404.html
+
 deploy:
   provider: pages
   skip_cleanup: true

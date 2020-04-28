@@ -14,17 +14,18 @@ cache: yarn
 after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - cd dist
+  - cat umi.js
   - cp index.html 404.html
   - cd ..
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: '$GITHUB_TOKEN'
-  on:
-    branch: master
-  repo: RihuaChen/RihuaChen.github.io
-  target_branch: master
-  local_dir: dist
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: '$GITHUB_TOKEN'
+#   on:
+#     branch: master
+#   repo: RihuaChen/RihuaChen.github.io
+#   target_branch: master
+#   local_dir: dist
 env:
   global:
     - secure: aV0NA7YcKFtnJvplPvIx1sZiV1l9TJcGmij26J6zkZLQ0OWLwbnnQWcYFL8fLnd15AfcTbqPZMDutYqm17moMjjRWzCHu9Sfct+3fIjBQ9jmEbP2dvED0dRwIU0Cva1XW1IKcbPNNRAPPq/eEqbuECB6MxowCX85/qifmj2nzmtV6/AmpkFe/eWhMZFjuy00RoJHDg/Q1v8yORpmU8ZCklvzuMXLL3sgCyzfBCiAi/sCNGSY4FynU/0+9+eNme+GCtj2xDWWc51v+llY4YFil0V/UEGJcC+iWYSi8xzqW/umSSKXjT2hmfPnUEda5BIsFJsIp7D7TTMdPYed5tbpD0cCA/1EPWNTLv+D1szPb1tUJiyPuOADH+C7iocJz23AZlLgWh2MUozxWHAGCC4rTyaOrjoPFnRbv3mw9Cpc8B77AbTz13kMT8SY5yP8wGSvqxgpibe7UiBgTkfIOZ4NXL4M2Gek1Ui9kwgSPCqTwcwZeJ739lT4yP+K09GV1y5V5I4mfgj+M2oI9Gdb9ooxQC6Zj68vIG/zXmpNN17xZwKcsl3jJU7BkWQUSbYMhQvayV2lK720usgODBp0Lqeb+iHThHlueM+LY4Dgg91+75PCBWbngzOzwIbb/WMHGDHO0usUOwIWMFq+MMXH+mfaFr5jXXeW7yrmVUjlY86pj9Q=

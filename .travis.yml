@@ -15,10 +15,14 @@ after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - cd dist
 - cp index.html 404.html
-- git init
-- git add --all
-- git commit -m "xxxx"
-- git push -f "https://${GH_TOKEN}@github.com/rihuachen/rihuachen.github.io.git" master
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GH_TOKEN"
+  on:
+    branch: master
+  repo: RihuaChen/RihuaChen.github.io
+  target_branch: master
 env:
   global:
-    secure: eoWvKhR/YUojHJz6BV460PkHAY/eB/T6rxexgtvI79lcavXAS5j21S5z0m3tCbsUZ9JXsw6p4OabOs4xSc3Ip/Bf3BJyrCRyFpimvn4Zys0WhIT3sGQDa5fx5Rx+Kg3Ab5i0uZsP0uo2QKVVGHEUKgCcad5kB1EehAMtspx1zfPe4Xii1UKgPXKxXuSIldtYJNGga03jQVYo9umUYbsF1hZxnnZYfH+RNvNs3OcnnuZECUEGh+QsXmncxSHW5TfsN1qp8Z+QwcXfWLaTktM18cwBRgaVsQIPcy1mwNqDi/dbMn7ZMbafQLVeItIGTqK27qa3uh1xfCoznaIzTnbgcvDw3oR+JRyhnkxglGxGqTzcnxW3IpdUi0IyoUOOUCl7wi9uGdetaYjPeFIxcYI9KYHormsvxDGz8dNBDQPwIzd6htlSV1ep7TZlBQYKRgx3O7bDloYcX96u7b2JHvnZ3eHLdtZ2+5Qu5FugOfBsBZMgk8ZW9gKMdERGsPxHWZZCDFaLnRri6k4D0ijD/dUUnpFApL27bTbt2GwxABoSUz3fuhF7A1KXV1M25YxIhCU+Xj8X9KW/gV39Rs/Mhy+tOwyVF/+8PhnaEtB7anYPVqRasX2REF2Ci6UQV8OY/L+dVXy3jDDihThXyobHW3P9MR75k8lGMO0c78qeFKnODxA=
+    secure: f8Un6kIYavsb/tSb0f+d64CYilXgGSWKZn650mNDEZhaizHKbgKJD+A9Lhup3Nh48YiaEdHjqTerGdu1hxEHKUvF//7p5qqYi72UBloSO4cirCpPsAmi+lKKuhCOkS06zzgCYH6UcGyV6JgJz+Tx4ORc0DPre9PyHVABppP6g5cnRKjCQpTIW+yIIVRqL/9D2+OcfaoSdEpZ/1WNwvLCEeG4+hbHLqgQ1GCGUslWi6MMQaskLIbA3GVfmu15CG7UswuXkPouCB5Fvizs8ow8RcKfVKcUn4ecy4U+DY12bhDb028vkBt5xQA1jZBH2KQhTBN5aduqPA7tkEI61wFJYaOWOaD3boSuMembf1rtpEppSa314UlmHe/qpGr5PpS9XHZVVIzmnrlfOCBf9zdLxZnNwKuyNLG7+EmVFo/sHnhiWvX3gIPy6GI9dsAybh7TwL7bv6RXVDxGbtsJM3tKs/ezJF8H7uscngSAOD8+OtickArGwmeBBYKSrpP37AUxc0e0RwB6XqIOmMaKYMGhihrl82SptN1hNohCVdY0Av3n3mOaSr/kGhzt+YwIMzTbB1FVwrjIKrSdX0dgftOIA+DSN/B/6y35G9KGrSM05U4Q1DEYsiG94f7/nHvbY4RUDEEg+zvBgFrA/XcN1CSVpM5as0kYDtZ58YoZq3XD0Tg=

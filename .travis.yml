@@ -11,15 +11,21 @@ test: true
 script:
 - yarn docs:build
 cache: yarn
-after_success:
-- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-- cd dist
-- cp index.html 404.html
-- git init
-- git remote add origin https://rihuachen:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
-- git add --all
-- git commit -m "${MESSAGE}"
-- git push origin master -f
+# after_success:
+# - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+# - cd dist
+# - cp index.html 404.html
+# - git init
+# - git remote add origin https://rihuachen:${GITHUB_TOKEN}@github.com/rihuachen/rihuachen.github.io.git
+# - git add --all
+# - git commit -m "${MESSAGE}"
+# - git push origin master -f
+deploy:
+  skip_cleanup: true # don't clean generated site
+  github_token: $GITHUB_TOKEN # provide the encrypted token
+  on:
+    branch: master
+  repo: RihuaChen/RihuaChen.github.io # optional, defaults to current repo
 env:
   global:
-    secure: sVTaUELkn0g/GfEfdbEEgQlexVgrYsv6oIQPeXgRsIgjpVy5+hi32kvpGIyMiFdEexkCyg5bFFLgABVPQmyOGYxFUO/v15x2S/osqWEK+MbQ/mx8/Z7wpi7cgXMkmuueVZmfwDXPQdtmeYfxQe58F8C1Dk2cZeGNoHj1HEcphUlae/z/01G8V0+aUCRb/AnJY/52QYVb91/Qlk0bQHNItuMnz8oEE9Ps80vANkGC3IRd5gP5Fh0RDAfqR6U3Vbb9FW+JRDbQqgTzNRdMQcpnhzf5FV7PdxPsZkSC2KUOlvGlvFldlfgABiaFTpcBZTB3DFVeL0afy6XX843eOltQhIJUrb5S1VD4nXgMye4yX6mov+WWJ6fHwJ9T/Vrvp5Xb66TlpCJa/d/iaRqZwhf6FPUZP+oTiZeTzUAcga/w8QtGJIreOp6T4RVmLzZF8+2PUp2TPTweuqV9RdDIXXxVAmPWEeZNwi6iTtNsFpChuLU7aGTTCtM0LgSy2/uS99z12Lnw5h2GQUWy0BeBE4pGM3TM8lu+atK38hyCrCf6TS8EIMxqtHP0u6YNTBP1azv5MvoryBh8dUKqCzzg2dpCbdAeMQVB5bGfoVyQ4hMNIwApUKv8Q4vCoKnGvPW8hjAMkGXfZLQB0T+pIjq6ZPnjQnSYybJnt6tFf4I8eJh3Z7c=
+  - secure: FlhASsBh4pucMIk5iKkg6K1LSWyb7zpQwf0o1QNgQJfen1leZAJApeprxzPFvcaGvxFO5uL3sZHUGVMhUmPL2Vxr021Xi2dhC2Kzd44qO6RJcsiPboCNhk44QWP9iGqqu10sucpHvYJztQUaZT8ZwiHp+FJzzr7eBlWsmgE/BTfLNSJUw0wPJdYPxN6LOCElikeVtxYE2SLNsUCpubAPuGRiRu8tfn4XtcuEevyRfRMPT+es3zRLGkvSODtdSPSUXoUT+RhkeDDULvqL5TjKdiSG4XUKOmxb2o4DGMB2pGCK0H4/jq+7Tb5O2H59Ag+ut+ZfuELY/21cz+wWfor6Y84dqkrYt8QU9DGzdm25eEk4y7T14fwyeasUmSmcb99LtgDo0U66IzemV1n/psMnzzzzzMcRk3oIIHBunkW5h/0NW2wSXdrGVkCoMQfpITLNC+PmyxyRkAdotJbpkpIAZnqLS5hOD0mhi5W9sPQxv7P0VdzTBDfMsPB5flfmjhxyDYyT9YFeR1gYZA4mGXt0b+NeZDhuWZBeGH9rDgrsi7KhK5KWrmt6EtwrehTNrvTVOKK63K0yjl90Uu6Ev7NLOKjOkGFyCiOVcCt9zPm2UWfVpHik/3szI5vcb1nyppkI1qifwM4Rma0U7uqd0GuRj8CVa8GZba5lwKpIeBA9+7E=

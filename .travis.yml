@@ -15,7 +15,7 @@ after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - cd dist
 - cp index.html 404.html
-- sed -i 's/GH_TOKEN:$GH_TOKEN,/""/g' umi.js
+- sed -i "s/GH_TOKEN:$GH_TOKEN,/''/g" umi.js
 deploy:
   provider: pages
   skip_cleanup: true
@@ -27,4 +27,4 @@ deploy:
   local_dir: dist
 env:
   global:
-    secure: yhZZhHTjam5B+oYz8f/JyJOH9kB5VIt2Xoms/6EBz27CpZlGCCM4iw3hswzC+EQX8xY+X/yT18eFsszL8hol7VHwme90Mvil9epQhUPR4TLqZKET0ng4ZudLLgZkGeUn287eQ3dumMgC4E9qDdOlHmjf3Fx0LsymRXaX7vv4G1xrY+M5gXrFRwQjpC8Ia+FnswgsCevWJK6uXmKUYDPuiQXY/S20+vbMUmdgGGhaVaZQG5IOUiJUC0RL4MMgvDmaQYxd3NP64FOMOsLTViPgqaShTnk5obtEeoFCTjwXq1y4zdlFMAtsMDrD1zSn9pfsTxsYMhg02ZBOg/K/FiV9Xhnb5muCUnR1toLtQHeujRW/BT3VDPH25rlGDSzKaoOP8fQOFVmt1rSVeBTesF24onREB9JbtiHc5gWJtjdLNpj3+CPjXvSn/G0YOTwihEUwO+obdLt4p9ildgN9wvsqYKrAiSK1vOvph1GliomXvd6h7qcI3p0K1qewsA6hEZQXaPRyd54+JEFHrOIH1NjXIooagHiCSvfn4+D+MW1WfZp8UoghkIJUNn61vRJmi0gPYuI3xc9TEuBguA4gDmVjc+jXEdyje0JWHSqgAATJHgnatBlXnRlX6upXA9pmXradR50R36KWVCj5ReaoyoHUIQuSRzBg6b3xJCLxTs8/VV8=
+    secure: Wxp4Ggq91fbEhu4wbD42HOC76INlAsAPPi63LIk8Gowtd+u3SWGWybQQIrOObgTat/SojqSh1gT0xjRUBmC4Q28zB6eiTmh3j6F3fu2BsdNK5cW0ZmOGTvQmNze1DF8aqfHb5KPrnXT/3wjMiBuKrmzIiDJpvZTBowx071Jixcg/wrf5JmpcXrIrMP9w5brMABPFeWjVGfgauWEymmbg6K1ohusW76fkyJCyWlhNzKUL3VmAiFdC6bdZjru3Flg2R1B1F44+NIbY7wGPa1CmIEBQtx6iLl0ZISEsYQloOdZQsUWnzMJix6deJjbucwNGKv2dMejaZB32uXD5E7TLYO/5DNudbUJG7HaMc21jgSDBqyI/jpeHW0b9e9crMimMd46qG2eXPeXDb3eAy21lDqeuFBhUwPjhKCkQ0IxTZEqOn4G/Ofki9mU0hy5/1gcqLWsD1Tsr3kRAa/WRkxXwHOnYk4sfQNAQu+Ii7rAkvdqbN7QLXjbkwZNlFIfxjpplxxSbNLhJjXgOSulPubTZfcn8PBUYp2RUGJKuHBFYu1kyPyuvYhu4uXdG+xKTir732uPqB0IS+N4uOle7wAx97GklQumRnqVZXSUlNsYQhYsLrn/klO5EnDfC8xWzrM/PL3mXs+0LEwpNTFYL6Wp/kUAVVIwxvavXmtjZBN6d58k=

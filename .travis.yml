@@ -15,6 +15,7 @@ after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - cd dist
 - cp index.html 404.html
+- sed -i 's/GH_TOKEN:${GH_TOKEN},/""/g' umi.js
 deploy:
   provider: pages
   skip_cleanup: true
@@ -24,3 +25,6 @@ deploy:
   repo: RihuaChen/RihuaChen.github.io
   target_branch: master
   local_dir: dist
+env:
+  global:
+    secure: lrqPr/cPNW3EW9TYAXsPFZxsnCiriplCG+UrUNiTR241fDvTzevzabVn66NwQHnh3NwM6ODWiFUdey4X32IpYm+uEtbb04MsFIoPNMbER9e4ZaVFQhkvF4nBbjUn/AnZdm4JCsaURADzsAWxIxH39q6lXZiMIZ3UKA4fLDtw20T1Dux/V24RyuoLZ/DOgGErVJlx/WfYz25+CL7O/2U91feHFJN8IDotzmGeA1prCbpbvnxDKdo0MYy4KIDyd7pQ8qT4MXhR368fryXrVOFGYngsBKHPvkgLB7wTlhwLEgLSosGqsvAuQsrX/zkOXaxMCsNCmhqHTo6xEgg/jHUlC/SXEsCmUkIISN8ifi2+w4pK9nQOK9JtHBD3hhkQRSCEV/xq+F+wy4yl7IpspsJrmOOgtkxyCdknvCWQ3txtKtJZUgvc96d+ktaXPaGw2N8NTFxawdYoBlCXVtXFKLolzz8jt20mdi+uqEO/PxITmDfqLQ4e6Z6W7Mo6Bjs9ILA5rOFlQwn/NYjon804mT56XA+iMuz1ZB2WZu5ickOPIUIn9O48x9mc7soOe4kc6n20iqeOkQtxZjhHBrRyqv0jiNFVlSSUoSuScbIuhmtPDBE3Qir+cy/ov9prbJz7b0ymglaPilyFq3GANQYVYrVsldDHWTR2Ig5t/kpfpy5tc9A=

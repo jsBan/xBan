@@ -16,7 +16,7 @@ after_success:
 - cd dist
 - cp index.html 404.html
 - echo GH_TOKEN:$GH_TOKEN
-- sed -i "s/GH_TOKEN:\"$GH_TOKEN\"\,/''/g" umi.js
+- sed -i "s/GH_TOKEN:\"$GH_TOKEN\"\,/ /g" umi.js
 deploy:
   provider: pages
   skip_cleanup: true

@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-- '10'
+  - '10'
 before_install:
-- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-- echo $TRAVIS_COMMIT
-- echo ${MESSAGE}
+  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+  - echo $TRAVIS_COMMIT
+  - echo ${MESSAGE}
 install:
-- yarn
+  - yarn
 test: true
 script:
-- yarn docs:build
+  - yarn docs:build
 cache: yarn
 after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)

@@ -10,7 +10,7 @@ install:
 test: true
 script:
 - yarn docs:build
-cache: yarn
+# cache: yarn
 after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - cd dist

@@ -75,3 +75,92 @@ useContext(MyContext);
 `useMemo` 用来做 **组件内部** 高开销的计算优化使用
 
 `useCallback(fn, deps)` 相当于 `useMemo(() => fn, deps)`
+
+## useLayoutEffect()
+
+`useLayoutEffect(() => {}, [])`
+
+90%的时候使用 useEffect(), 当需要在 dom 全部加载完成且未渲染之前做一下 dom 操作的时候, 需要 useLayoutEffect()
+
+跟 useEffect()的区别是：
+
+useEffect: 渲染 => useEffect() => 渲染
+useLayoutEffect: useLayoutEffect() => 渲染
+
+useEffect
+
+```js
+const Message = ({boxRef, children}) => {
+  const msgRef = React.useRef(null);
+  React.useEffect(() => {
+    const rect = boxRef.current.getBoundingClientRect();
+    msgRef.current.style.top = `${rect.height + rect.top}px`;
+  }, []);
+
+  return <span ref={msgRef} className="msg">{children}</span>;
+};
+
+const App = () => {
+  const [show, setShow] = React.useState(false);
+  const boxRef = React.useRef(null);
+
+  return (
+    <div>
+      <div ref={boxRef} className="box" onClick={() => setShow(prev => !prev)}>Click me</div>
+      {show && <Message boxRef={boxRef}>Foo bar baz</Message>}
+    </div>
+  );
+};
+
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: green;
+  color: white;
+}
+
+.msg {
+  position: relative;
+  border: 1px solid red;
+}
+```
+
+useLayoutEffect
+
+```js
+const Message = ({boxRef, children}) => {
+  const msgRef = React.useRef(null);
+  React.useLayoutEffect(() => {
+    const rect = boxRef.current.getBoundingClientRect();
+    msgRef.current.style.top = `${rect.height + rect.top}px`;
+  }, []);
+
+  return <span ref={msgRef} className="msg">{children}</span>;
+};
+
+const App = () => {
+  const [show, setShow] = React.useState(false);
+  const boxRef = React.useRef(null);
+
+  return (
+    <div>
+      <div ref={boxRef} className="box" onClick={() => setShow(prev => !prev)}>Click me</div>
+      {show && <Message boxRef={boxRef}>Foo bar baz</Message>}
+    </div>
+  );
+};
+
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: green;
+  color: white;
+}
+
+.msg {
+  position: relative;
+  border: 1px solid red;
+}
+```

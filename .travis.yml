@@ -23,8 +23,8 @@ deploy:
   github_token: "$GH_TOKEN"
   on:
     branch: master
-  repo: RihuaChen/RihuaChen.github.io
-  target_branch: master
+  repo: RihuaChen/blog
+  target_branch: gh-pages
   local_dir: dist
 env:
   global:
